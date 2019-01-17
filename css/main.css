@@ -47,3 +47,12 @@ li:last-child{
 #inputError{
     height: 50px;
 }
+
+
+@media print{
+*{color: black !important;}
+.print-hidden{
+    display: none;
+}
+
+}

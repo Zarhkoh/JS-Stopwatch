@@ -23,6 +23,8 @@ var lbArray = [];
 
 var inputError = document.getElementById("inputError");
 
+var printBtn = document.getElementById("printBtn");
+
 
 
 var startTime = 0
@@ -89,33 +91,33 @@ startBtn.addEventListener("click", chronoStart)
 
 function chronoStart() {
 
-    if(startBtn.innerHTML == "Start" && timer == "00:00:00:00") {
+    if (startBtn.innerHTML == "Start" && timer == "00:00:00:00") {
 
-    start = new Date()
+        start = new Date()
 
-    chrono()
+        chrono()
 
-    startBtn.innerHTML = "Stop"
+        startBtn.innerHTML = "Stop"
 
     }
 
-    else if (startBtn.innerHTML == "Start" && timer != "00:00:00:00"){
+    else if (startBtn.innerHTML == "Start" && timer != "00:00:00:00") {
 
-    start = new Date()-diff
+        start = new Date() - diff
 
-	start = new Date(start)
+        start = new Date(start)
 
-    chrono()
+        chrono()
 
-    startBtn.innerHTML = "Stop"
+        startBtn.innerHTML = "Stop"
 
     }
 
     else {
 
-    clearTimeout(timerID)
+        clearTimeout(timerID)
 
-    startBtn.innerHTML = "Start"
+        startBtn.innerHTML = "Start"
 
     }
 
@@ -127,8 +129,8 @@ resetBtn.addEventListener("click", chronoReset)
 
 // Fonction qui remet à 0 le chronomètre
 
-function chronoReset(){
-document.location.reload(true);
+function chronoReset() {
+    document.location.reload(true);
 }
 
 // On écoute le bouton "deleteBtn" et exécute la fonction removeTimer
@@ -137,10 +139,10 @@ deleteBtn.addEventListener("click", removeTimer);
 
 // Cette fonction vide TOUT le local storage
 
-function removeTimer(event) { 
+function removeTimer(event) {
 
-  localStorage.clear()
-  lbArray = []
+    localStorage.clear()
+    lbArray = []
 
 }
 
@@ -157,10 +159,13 @@ function saveTimer(event) {
         inputError.innerHTML = "ECRIS UN NOM FDP !"
     }
 
-    else {var lbObject = {name: nameInput.value, 
-    time: timer.innerHTML,};
-lbArray.push(lbObject);
-localStorage.setItem("leaderboard", JSON.stringify(lbArray));
+    else {
+        var lbObject = {
+            name: nameInput.value,
+            time: timer.innerHTML,
+        };
+        lbArray.push(lbObject);
+        localStorage.setItem("leaderboard", JSON.stringify(lbArray));
     }
 }
 
@@ -173,27 +178,33 @@ function display() {
     var leaderboardList = JSON.parse(localStorage.getItem('leaderboard'));
     boardName.innerHTML = '';
     boardTime.innerHTML = '';
-	leaderboardList.forEach(function(score) {
- 		// On crée l'élément p et lui donne une ID
-		var liName = document.createElement("li");
+    leaderboardList.forEach(function (score) {
+        // On crée l'élément p et lui donne une ID
+        var liName = document.createElement("li");
 
-		liName.className = "name";
+        liName.className = "name";
 
- 		// On envoie l'élément p dans le board
-		boardName.appendChild(liName);
+        // On envoie l'élément p dans le board
+        boardName.appendChild(liName);
 
- 		var liTime = document.createElement("li");
+        var liTime = document.createElement("li");
 
- 		liTime.className = "time";
+        liTime.className = "time";
 
- 		boardTime.appendChild(liTime);
+        boardTime.appendChild(liTime);
 
- 		//  On envoie le localStorage dans le contenu p
-		liName.innerText =  score.name;
+        //  On envoie le localStorage dans le contenu p
+        liName.innerText = score.name;
 
- 		liTime.innerText =  score.time;
-		// board.innerHTML += "nom: " + score.name + "time: " + score.time;
-		}
-	);
-
+        liTime.innerText = score.time;
+        // board.innerHTML += "nom: " + score.name + "time: " + score.time;
+    }
+    );
 }
+
+printBtn.addEventListener("click", leaderboardPrint);
+
+function leaderboardPrint() {
+    window.print();
+}
+
