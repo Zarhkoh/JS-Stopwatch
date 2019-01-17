@@ -12,12 +12,11 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
 
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
 
-    <script src="main.js" defer></script>
+    <script src="js/main.js" defer></script>
 
 
 </head>
@@ -44,12 +43,12 @@
 
         <div class="text-center mb-3">
 
-            <button id="deleteBtn" class="btn btn-warning">Delete Leaderboard</button>
-            <button id="showBtn" class="btn btn-warning">Show Leaderboard</button>
+            <button id="deleteBtn" class="btn btn-warning mt-2">Delete Leaderboard</button>
+            <button id="showBtn" class="btn btn-warning mt-2">Show Leaderboard</button>
         </div>
 
 
-        <div class="d-flex leaderboard-title text-center">
+        <div class="d-flex justify-content-center leaderboard-title mr-5">
             <ul class="mb-1 mx-0">
                 <li class="title">NAME:</li>
             </ul>
@@ -59,8 +58,8 @@
             </ul>
         </div>
 
-        <div class="leaderboard d-flex text-center">
-            <ul class ='text-center'id="boardName">
+        <div class="leaderboard d-flex justify-content-center text-center mr-5">
+            <ul class ='text-center text-uppercase'id="boardName">
             </ul>
 
             <ul class='text-center'id="boardTime"></ul>
