@@ -50,9 +50,9 @@ li:last-child{
 
 
 @media print{
-*{color: black !important;}
-.print-hidden{
+    *{color: black !important;
+    }
+    .print-hidden{
     display: none;
-}
-
+    }
 }
